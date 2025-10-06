@@ -7,10 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
 
-/**
- * Comprehensive test suite for MinHeap implementation.
- * Covers edge cases, correctness, and performance metrics.
- */
 class MinHeapTest {
 
     private MinHeap<Integer> heap;
@@ -20,7 +16,6 @@ class MinHeapTest {
         heap = new MinHeap<>();
     }
 
-    // ============ Basic Operations Tests ============
 
     @Test
     @DisplayName("Empty heap should be empty")
@@ -81,8 +76,6 @@ class MinHeapTest {
         assertThrows(NoSuchElementException.class, () -> heap.peekMin());
     }
 
-    // ============ Edge Cases Tests ============
-
     @Test
     @DisplayName("Handle duplicate elements")
     void testDuplicateElements() {
@@ -125,8 +118,6 @@ class MinHeapTest {
         }
     }
 
-    // ============ Constructor Tests ============
-
     @Test
     @DisplayName("Build heap from array (bottom-up heapify)")
     void testBuildHeapFromArray() {
@@ -160,8 +151,6 @@ class MinHeapTest {
         Integer[] array = {5, null, 10};
         assertThrows(IllegalArgumentException.class, () -> new MinHeap<>(array));
     }
-
-    // ============ Decrease-Key Tests ============
 
     @Test
     @DisplayName("Decrease key moves element up correctly")
@@ -210,8 +199,6 @@ class MinHeapTest {
         assertThrows(IllegalArgumentException.class, () -> heap.decreaseKey(null, 5));
         assertThrows(IllegalArgumentException.class, () -> heap.decreaseKey(10, null));
     }
-
-    // ============ Merge Tests ============
 
     @Test
     @DisplayName("Merge two heaps")
@@ -286,7 +273,6 @@ class MinHeapTest {
         assertEquals(Arrays.asList(10, 20, 30, 40, 50, 60), extracted);
     }
 
-    // ============ Performance Metrics Tests ============
 
     @Test
     @DisplayName("Metrics are tracked during operations")
@@ -314,8 +300,6 @@ class MinHeapTest {
         assertEquals(0, heap.getSwaps());
         assertEquals(0, heap.getArrayAccesses());
     }
-
-    // ============ Heap Property Tests ============
 
     @Test
     @DisplayName("Heap property maintained after multiple operations")
